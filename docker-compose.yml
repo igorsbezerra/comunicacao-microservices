@@ -1,0 +1,70 @@
+version: '3'
+
+services:
+  postgresql-auth-db:
+    image: postgres
+    container_name: postgresql-auth-db
+    environment:
+      - POSTGRES_DB=auth-db
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=docker
+    ports:
+      - "5432:5432"
+  auth-api:
+    build: './auth-api'
+    container_name: auth-api
+    environment:
+      - PORT=8080
+    ports:
+      - "8080:8080"
+
+
+  postgresql-product-db:
+    image: postgres
+    container_name: postgresql-product-db
+    environment:
+      - POSTGRES_DB=auth-db
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=docker
+    ports:
+      - "5433:5432"
+  product-api:
+    build: './product-api'
+    container_name: product-api
+    environment:
+      - PORT=8081
+    ports:
+      - "8081:8081"
+  
+  
+  mongo-sales-db:
+    image: tutum/mongodb
+    container_name: mongo-sales-db
+    environment:
+      - MONGO_USER=docker
+      - MONGO_PASS=docker
+      - MONGO_DATABASE=sales
+    ports:
+      - "27017:27017"
+      - "28018:28018"
+  sales-api:
+    build: './sales-api'
+    container_name: sales-api
+    environment:
+      - PORT=8082
+    ports:
+      - "8082:8082"
+
+
+  sales-rabbit:
+    image: rabbitmq:3-management
+    container_name: sales-rabbit
+    environment:
+      - MONGO_USER=docker
+      - MONGO_PASS=docker
+      - MONGO_DATABASE=sales
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+      - "25672:25672"
+  
