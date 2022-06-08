@@ -1,7 +1,7 @@
 import { Router } from "express";
-import { ensureAuthenticated } from "../../middleware/checkAuthToken";
-import { AuthUserController } from "../controller/auth/AuthUserController";
-import { FindUserByEmailController } from "../controller/findByEmail/FindUserByEmailController";
+import { ensureAuthenticated } from "../../../middleware/checkAuthToken";
+import { AuthUserController } from "../useCases/auth/AuthUserController";
+import { FindUserByEmailController } from "../useCases/findByEmail/FindUserByEmailController";
 
 const userRouter = Router();
 

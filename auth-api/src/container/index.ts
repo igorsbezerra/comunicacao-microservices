@@ -1,9 +1,9 @@
 import { container } from "tsyringe";
 
-import { UserRepository } from "../module/repository/UserRepository";
-import { IUserRepository } from "../module/repository/IUserRepository";
-import { IHashProvider } from "../module/provider/HashProvider/IHashProvider";
-import { HashProvider } from "../module/provider/HashProvider/HashProvider";
+import { UserRepository } from "../module/user/repository/UserRepository";
+import { IUserRepository } from "../module/user/repository/IUserRepository";
+import { IHashProvider } from "../module/user/provider/HashProvider/IHashProvider";
+import { HashProvider } from "../module/user/provider/HashProvider/HashProvider";
 import { JWTProvider } from "../providers/JWTProvider/JWTProvider";
 import { IJWTProvider } from "../providers/JWTProvider/IJWTProvider";
 

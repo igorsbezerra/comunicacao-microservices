@@ -1,10 +1,10 @@
 import { inject, injectable } from "tsyringe";
 
 import { IHashProvider } from "../../provider/HashProvider/IHashProvider";
-import { IJWTProvider } from "../../../providers/JWTProvider/IJWTProvider";
+import { IJWTProvider } from "../../../../providers/JWTProvider/IJWTProvider";
 import { IUserRepository } from "../../repository/IUserRepository";
 
-import { AppError } from "../../../errors/AppError";
+import { AppError } from "../../../../errors/AppError";
 
 @injectable()
 export class AuthUserService {
